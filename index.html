@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>花都区委书记 - 花都区领导工作动态与政务公开平台</title>
+  <meta name="description" content="花都区委书记政务信息平台，展示花都区领导工作动态、区委重要会议、党建活动及民生政策解读，助力阳光政务与政民互动。">
+  <meta name="keywords" content="花都区委书记,花都区领导,花都区政府,政务公开,领导动态,党建,花都新闻,书记调研">
+  <style>
+    /* ===== 基础重置与变量 ===== */
+    :root {
+      --primary: #0b3b5c;
+      --primary-light: #1c5a7a;
+      --accent: #c49a3c;
+      --accent-light: #dfb95e;
+      --bg-light: #f5f7fa;
+      --text-main: #1f2d3d;
+      --text-muted: #52616b;
+      --white: #ffffff;
+      --border-line: #e5e9ef;
+      --banner-overlay: rgba(6, 32, 51, 0.75);
+      --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.06);
+      --radius: 8px;
+      --max-width: 1240px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ===== 顶部导航 ===== */
+    .top-bar {
+      background-color: var(--primary);
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.9rem;
+      padding: 8px 0;
+    }
+
+    .top-bar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-bar-links span {
+      margin-right: 16px;
+      opacity: 0.8;
+    }
+
+    .top-bar-links a:hover {
+      color: var(--accent-light);
+    }
+
+    /* ===== 主导航栏 ===== */
+    .header-main {
+      background: var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-icon {
+      background: var(--primary);
+      color: var(--white);
+      font-weight: 700;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      margin-right: 12px;
+      font-size: 1.2rem;
+    }
+
+    .logo-text h1 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+
+    .logo-text .sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+    }
+
+    .main-nav ul {
+      display: flex;
+      gap: 28px;
+    }
+
+    .main-nav a {
+      font-weight: 500;
+      color: var(--text-main);
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+
+    .main-nav a:hover, .main-nav a.active {
+      color: var(--primary);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ===== 横幅·首屏 ===== */
+    .hero-banner {
+      background: linear-gradient(135deg, #0a3147 0%, #1a4b66 100%);
+      color: var(--white);
+      padding: 50px 0;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 90% 20%, rgba(196, 154, 60, 0.2) 0%, transparent 40%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-text {
+      flex: 1 1 300px;
+      padding-right: 20px;
+    }
+
+    .hero-text .tagline {
+      font-size: 0.9rem;
+      background: rgba(255,255,255,0.15);
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 30px;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+    }
+
+    .hero-text h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 18px;
+    }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      opacity: 0.85;
+      max-width: 600px;
+      margin-bottom: 24px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: #0b2a3b;
+      padding: 8px 22px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.6);
+      color: var(--white);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .btn:hover {
+      background: var(--accent-light);
+      transform: translateY(-1px);
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 20px 25px;
+      border-radius: 12px;
+      min-width: 240px;
+    }
+
+    .hero-card h3 {
+      font-size: 1.1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    .hero-card ul li {
+      padding: 8px 0;
+      border-bottom: 1px dashed rgba(255,255,255,0.1);
+      font-size: 0.95rem;
+    }
+
+    .hero-card ul li:last-child {
+      border-bottom: none;
+    }
+
+    /* ===== 政务动态 ===== */
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .section-title h2 {
+      font-size: 1.7rem;
+      color: var(--primary);
+      border-left: 5px solid var(--accent);
+      padding-left: 15px;
+    }
+
+    .section-more {
+      color: var(--primary-light);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .grid-news {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-bottom: 45px;
+    }
+
+    .news-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow-card);
+      transition: 0.2s;
+      border-top: 3px solid transparent;
+    }
+
+    .news-card:hover {
+      border-top-color: var(--accent);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+    }
+
+    .news-card .date-badge {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: #eef2f7;
+      padding: 2px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .news-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .news-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* ===== 党建与治理 ===== */
+    .dual-section {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 45px;
+      flex-wrap: wrap;
+    }
+
+    .card-panel {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 25px;
+      flex: 1 1 300px;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--border-line);
+    }
+
+    .card-panel h3 {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .list-item {
+      padding: 12px 0;
+      border-bottom: 1px solid #eef1f5;
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+    }
+
+    .list-item:last-child {
+      border-bottom: none;
+    }
+
+    .list-item .date {
+      font-size: 0.8rem;
+      background: #eaf0f6;
+      padding: 2px 8px;
+      border-radius: 12px;
+      color: var(--primary-light);
+      white-space: nowrap;
+    }
+
+    /* ===== 民生直通车 ===== */
+    .people-panel {
+      background: var(--primary);
+      color: var(--white);
+      padding: 35px 20px;
+      border-radius: 16px;
+      margin: 30px 0 40px;
+    }
+
+    .people-flex {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .people-flex h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .people-flex p {
+      opacity: 0.85;
+    }
+
+    .hotline-box {
+      background: rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 16px 24px;
+      min-width: 240px;
+      border-left: 4px solid var(--accent);
+    }
+
+    /* ===== FAQ ===== */
+    .faq-block {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 50px;
+    }
+
+    .faq-item {
+      padding: 15px 0;
+      border-bottom: 1px solid #e8edf2;
+    }
+
+    .faq-item summary {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--primary);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-item p {
+      margin-top: 10px;
+      color: var(--text-muted);
+    }
+
+    /* ===== 页脚 ===== */
+    .footer {
+      background: #0b2a3b;
+      color: #cbd5e0;
+      padding: 40px 0 0;
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-bottom: 30px;
+      gap: 30px;
+    }
+
+    .footer-col h4 {
+      color: var(--white);
+      margin-bottom: 18px;
+      font-size: 1.1rem;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-col a:hover {
+      color: var(--accent-light);
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 18px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 900px) {
+      .grid-news {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .header-wrap {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+      .hero-text h2 {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid-news {
+        grid-template-columns: 1fr;
+      }
+      .top-bar .container {
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+      }
+      .hero-content {
+        flex-direction: column;
+      }
+      .logo-text h1 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 顶部辅助信息 -->
+  <div class="top-bar">
+    <div class="container">
+      <div>中共广州市花都区委员会 花都区人民政府</div>
+      <div class="top-bar-links">
+        <span>网站无障碍</span>
+        <span>繁</span>
+        <span>EN</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主导航 -->
+  <header class="header-main">
+    <div class="container header-wrap">
+      <div class="logo-area">
+        <div class="logo-icon">花</div>
+        <div class="logo-text">
+          <h1>花都区委书记</h1>
+          <div class="sub">政务公开 · 领导动态</div>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#" class="active">首页</a></li>
+          <li><a href="#">领导活动</a></li>
+          <li><a href="#">区委会议</a></li>
+          <li><a href="#">党建之窗</a></li>
+          <li><a href="#">政民互动</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 首屏 hero 横幅 -->
+  <section class="hero-banner">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <span class="tagline">花都区 · 高质量发展</span>
+        <h2>花都区委书记<br>深入一线调研 推动民生实事</h2>
+        <p>聚焦“百千万工程”、绿美花都建设，坚持党建引领，全心全意为人民服务。权威发布区委书记政务动态。</p>
+        <div class="btn-group">
+          <a href="#" class="btn">最新政务要闻</a>
+          <a href="#" class="btn-outline btn">领导信箱</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>近期工作重点</h3>
+        <ul>
+          <li>▸ 花都区“百千万工程”推进会</li>
+          <li>▸ 区委书记调研汽车产业基地</li>
+          <li>▸ 绿美花都生态建设部署</li>
+          <li>▸ 安全生产与防汛检查</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- 政务动态栏目 -->
+    <section>
+      <div class="section-title">
+        <h2>书记政务动态</h2>
+        <a href="#" class="section-more">全部动态 →</a>
+      </div>
+      <div class="grid-news">
+        <article class="news-card">
+          <span class="date-badge">2025-04-12</span>
+          <h3>区委书记主持召开区委常委会（扩大）会议</h3>
+          <p>传达学习上级重要讲话，研究花都区经济运行、安全生产及乡村振兴工作，确保各项部署落地见效。</p>
+        </article>
+        <article class="news-card">
+          <span class="date-badge">2025-04-08</span>
+          <h3>深入花东镇调研“百千万工程”典型村</h3>
+          <p>实地走访村庄环境整治、特色产业培育项目，强调要因地制宜发展集体经济，打造宜居宜业和美乡村。</p>
+        </article>
+        <article class="news-card">
+          <span class="date-badge">2025-04-03</span>
+          <h3>区委书记参加义务植树活动</h3>
+          <p>践行“绿水青山就是金山银山”，与干部群众共同植绿，推动绿美花都生态建设走深走实。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 党建与治理双栏目 -->
+    <div class="dual-section">
+      <div class="card-panel">
+        <h3>⚑ 党建工作</h3>
+        <div class="list-item"><span class="date">04.15</span> 区委书记讲纪律党课</div>
+        <div class="list-item"><span class="date">04.10</span> 基层党组织书记述职评议会</div>
+        <div class="list-item"><span class="date">03.28</span> 新党员入党宣誓活动</div>
+        <div class="list-item"><span class="date">03.20</span> 区委理论学习中心组学习</div>
+      </div>
+      <div class="card-panel">
+        <h3>⚑ 重要会议</h3>
+        <div class="list-item"><span class="date">04.14</span> 区委书记专题会研究轨道交通规划</div>
+        <div class="list-item"><span class="date">04.06</span> 花都区优化营商环境座谈会</div>
+        <div class="list-item"><span class="date">03.30</span> 全区河长制工作会议</div>
+        <div class="list-item"><span class="date">03.22</span> 区委农村工作会议</div>
+      </div>
+    </div>
+
+    <!-- 民生直通车 -->
+    <section class="people-panel">
+      <div class="people-flex">
+        <div>
+          <h2>民有所呼 · 我有所应</h2>
+          <p>花都区委书记信箱 / 12345政务服务热线 / 网上信访</p>
+        </div>
+        <div class="hotline-box">
+          <div style="font-size:1.4rem; font-weight:700;">020-12345</div>
+          <div style="font-size:0.85rem; opacity:0.8;">花都区政务服务便民热线</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 常见问题FAQ -->
+    <section class="faq-block">
+      <div class="section-title" style="margin-bottom:15px;">
+        <h2 style="font-size:1.5rem;">您可能关心的问题</h2>
+      </div>
+      <details class="faq-item" open>
+        <summary>如何预约区委书记接待日？</summary>
+        <p>每月第一个周三上午为区委书记接待日（节假日顺延），可通过“花都区政府”官网或拨打12345热线预约登记，需提供有效身份信息及诉求材料。</p>
+      </details>
+      <details class="faq-item">
+        <summary>花都区“百千万工程”是什么？</summary>
+        <p>即“百县千镇万村高质量发展工程”，花都区正以头号工程力度推进强区促镇带村，区委书记挂帅指挥，重点提升城镇能级、建设和美乡村。</p>
+      </details>
+      <details class="faq-item">
+        <summary>如何给区委书记写信反映问题？</summary>
+        <p>可在本网站“政民互动”板块提交信件，或邮寄至花都区迎宾大道89号区委办公室。信件需注明联系方式，便于反馈办理结果。</p>
+      </details>
+      <details class="faq-item">
+        <summary>花都区最新的产业扶持政策在哪里看？</summary>
+        <p>区委书记多次强调优化营商环境，具体政策可在“花都区人民政府”官网“政策文件”栏目查询，或关注“广州花都发布”公众号。</p>
+      </details>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h4>中共广州市花都区委</h4>
+        <ul>
+          <li><a href="#">区委领导</a></li>
+          <li><a href="#">机构设置</a></li>
+          <li><a href="#">信息公开</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>政务链接</h4>
+        <ul>
+          <li><a href="#">花都区人民政府</a></li>
+          <li><a href="#">广州政务</a></li>
+          <li><a href="#">广东省政府</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>联系方式</h4>
+        <ul>
+          <li>地址：广州市花都区迎宾大道89号</li>
+          <li>总机：020-36899000</li>
+          <li>邮箱：hdqwb@huadu.gov.cn</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2025 花都区委书记政务信息平台 · 版权所有
+    </div>
+  </footer>
+
+  <!-- 指定广告脚本（已保留） -->
+  <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
